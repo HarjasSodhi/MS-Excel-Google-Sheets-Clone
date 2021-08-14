@@ -1,0 +1,296 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0cm;
+}
+.container {
+  height: 100vh;
+  width: 100vw;
+}
+.title-bar {
+  background-color: green;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Raleway", sans-serif;
+  width: 100%;
+  height: 3.5%;
+  outline: none;
+}
+.menu-bar {
+  font-family: "Raleway", sans-serif;
+  display: flex;
+  width: 100%;
+  height: 4%;
+}
+.menu-bar div {
+  font-family: "Raleway", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 9vh;
+}
+.menu-bar div:hover {
+  background-color: green;
+  color: white;
+}
+.menu-option-selected {
+  background-color: green;
+  color: white;
+  border: 1px solid white;
+}
+.formatting {
+  height: 6%;
+  font-family: "Raleway", sans-serif;
+  width: 100%;
+  border: 1px solid green;
+  display: flex;
+  position: relative;
+}
+.formula-bar {
+  width: 100%;
+  font-family: "Raleway", sans-serif;
+  height: 4%;
+  border: 1px solid green;
+  position: relative;
+}
+#selected-cell {
+  height: 100%;
+  width: 20%;
+  font-family: "Raleway", sans-serif;
+  outline: none;
+  border: 1px solid green;
+  text-align: center;
+  position: absolute;
+  z-index: 4;
+}
+#complete-formula {
+  outline: none;
+  font-family: "Raleway", sans-serif;
+  height: 100%;
+  width: 80%;
+  border: 1px solid green;
+  position: absolute;
+  left: 20%;
+  z-index: 4;
+}
+.grid {
+  height: 78.5%;
+  width: 100%;
+  overflow: auto;
+  position: relative;
+}
+.sheets-bar {
+  height: 4%;
+  width: 100%;
+  font-family: "Raleway", sans-serif;
+  border: 1px solid;
+}
+.sheets-bar div {
+  border: 1px solid;
+  height: 100%;
+  width: 20%;
+  font-family: "Raleway", sans-serif;
+  display: flex;
+  color: green;
+  justify-content: center;
+  align-items: center;
+}
+.bui {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100%;
+  width: 20%;
+  border: 1px solid green;
+}
+.font-styles {
+  height: 100%;
+  width: 40%;
+  font-family: "Raleway", sans-serif;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border: 1px solid green;
+}
+.allignment {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 20%;
+  height: 100%;
+  border: 1px solid green;
+}
+.colors {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 20%;
+  height: 100%;
+  border: 1px solid green;
+}
+.blank {
+  height: 4vh;
+  width: 2vw;
+  background-color: green;
+  border: 1px solid;
+  position: fixed;
+  left: 0;
+  color: white;
+  z-index: 2;
+}
+.columnIDContainer {
+  display: flex;
+  position: fixed;
+  font-family: "Raleway", sans-serif;
+  left: 2vw;
+  display: flex;
+  height: 4vh;
+}
+.column-id-cells {
+  width: 80px;
+  height: 100%;
+  background-color: green;
+  color: white;
+  text-align: center;
+  padding-top: 3px;
+  border: 1px solid;
+  flex-shrink: 0;
+}
+.rowNumberContainer {
+  position: fixed;
+  font-family: "Raleway", sans-serif;
+  top: 8.8rem;
+}
+.row-num-cells {
+  height: 4vh;
+  width: 2vw;
+  background-color: green;
+  color: white;
+  font-family: "Raleway", sans-serif;
+  text-align: center;
+  border: 1px solid;
+}
+.inputcell-rows {
+  display: flex;
+  margin-left: 2vw;
+}
+.inputcell-columns {
+  height: 4vh;
+  width: 80px;
+  background-color: white;
+  border: 1px solid;
+  flex-shrink: 0;
+  font-family: Arial;
+}
+.highlighted-cell {
+  border: 3px solid green;
+}
+.File-Modal {
+  position: absolute;
+  display: block;
+  height: 4rem;
+  width: 3.7rem;
+  z-index: 5;
+  top: 3.1rem;
+  left: 0rem;
+  color: white;
+  border: 1px solid white;
+  background-color: green;
+}
+.File-Modal div {
+  text-align: center;
+  font-family: "Raleway", sans-serif;
+  border: 1px solid white;
+}
+font {
+  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Times New Roman", Times, serif;
+}
+.save-Modal,
+.open-Modal,
+.clear-Modal,
+.help-modal {
+  position: absolute;
+  top: 0;
+  z-index: 4;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.innerSaveDiv,
+.innerOpenDiv,
+.clear-inner-div,
+.instructions {
+  height: 6rem;
+  width: 30rem;
+  background-color: white;
+  border: 5px solid green;
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.instructions{
+  overflow: auto;
+  padding-top: 20px;
+}
+.innerSaveDiv input {
+  text-align: center;
+  height: 50%;
+  width: 80%;
+  outline: green;
+  font-size: 1.5rem;
+}
+.innerOpenDiv,
+.clear-inner-div {
+  display: block;
+  overflow: auto;
+}
+.open-Modal div div {
+  font-size: 25px;
+  text-align: center;
+  border: 1px solid black;
+  width: 100%;
+}
+
+.delete-sure {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  height: 33%;
+  width: 100;
+  background-color: green;
+}
+.delete-options {
+  width: 100%;
+  height: 33%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cancel {
+  border-top: 1px solid black;
+}
+.BackBtn,.closeBtn {
+  border-radius: 100%;
+  position: absolute;
+  top: 12rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 2rem;
+  z-index: 10;
+  background-color: gray;
+  height: 4rem;
+  width: 4rem;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

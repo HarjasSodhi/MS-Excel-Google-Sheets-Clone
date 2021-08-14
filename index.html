@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excel</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="title-bar" style="font-weight: bold;">New Document</div>
+        <div class="menu-bar">
+            <div class="File">File</div>
+            <div class="Help">Help</div>
+        </div>
+        <div class="File-Modal" style="display: none;">
+            <div class="open">Open</div>
+            <div class="save">Save</div>
+            <div class="clear">Delete</div>
+        </div>
+        <div class="open-Modal" style="display: none;">
+            <div class="BackBtn">X</div>
+            <div class="innerOpenDiv"></div>
+        </div>
+        <div class="save-Modal" style="display: none;">
+            <div class="BackBtn" onclick=" document.querySelector('.save-Modal').style.display='none'; ">X</div>
+            <div class="innerSaveDiv">
+                <input type="text" placeholder="Enter File Name">
+            </div>
+        </div>
+        <div class="clear-Modal" style="display: none;">
+            <div class="clear-inner-div">
+                <div class="delete-sure">
+                    Are You Sure? This will delete the current Sheet.
+                </div>
+                <div class="delete-options yes">Yes</div>
+                <div class="delete-options cancel">Cancel</div>
+            </div>
+        </div>
+        <div class="help-modal" style="display: none;">
+            <div class="closeBtn">X</div>
+            <div class="instructions">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut quasi libero a! Doloribus debitis
+                reiciendis asperiores magni iure amet cumque hic cum sunt tempora doloremque officia est impedit sequi,
+                neque qui quidem. Dolorum explicabo debitis voluptatem ea architecto commodi recusandae dolore
+                reiciendis quibusdam! Temporibus nam rem error esse, voluptas ipsam.
+            </div>
+        </div>
+        <div class="formatting">
+            <div class="bui">
+                <span class="material-icons"> format_bold </span>
+                <span class="material-icons"> format_italic </span>
+                <span class="material-icons"> format_underlined </span>
+            </div>
+            <div class="font-styles">
+                <select id="cell-font-family">
+                    <option value="Arial">arial</option>
+                    <option value="Franklin Gothic Medium">Franklin Gothic Medium</option>
+                    <option value="Comic Sans MS">Comic Sans MS</option>
+                    <option value="Times New Roman">new times roman</option>
+                    <option value="Raleway">Raleway</option>
+                </select>
+                <select id="font-size">
+                    <option value="14px">14</option>
+                    <option value="15px">15</option>
+                    <option value="16px">16</option>
+                    <option value="17px">17</option>
+                    <option value="18px">18</option>
+                    <option value="19px">19</option>
+                    <option value="20px">20</option>
+
+                </select>
+            </div>
+            <div class="allignment">
+                <span class="material-icons"> format_align_left </span>
+                <span class="material-icons"> format_align_center </span>
+                <span class="material-icons"> format_align_right </span>
+            </div>
+            <div class="colors">
+                <span class="material-icons"> format_color_text </span>
+                <span class="material-icons"> format_color_fill </span>
+            </div>
+        </div>
+        <div class="formula-bar">
+            <input id="selected-cell" placeholder="Selected Cell" /><input id="complete-formula"
+                placeholder="Formula (Make sure there are spaces between cell addresses and operators while entering the formula Example- A1 + B1 + C1)" />
+            <!-- adding enter between input tags in code generates space in tags on page -->
+        </div>
+        <div class="grid">
+            <div class="blank"></div>
+            <div class="columnIDContainer"></div>
+            <div class="rowNumberContainer"></div>
+        </div>
+        <div class="sheets-bar">
+            <div>Sheet-1</div>
+        </div>
+    </div>
+</body>
+<script src="script.js"></script>
+<script src="scrollScript.js"></script>
+<script src="StyleScript.js"></script>
+
+</html>
