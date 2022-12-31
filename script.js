@@ -5,7 +5,6 @@ let body = document.querySelector("body");
 body.spellcheck = false;
 let menuOptions = document.querySelectorAll(".menu-bar div");
 let fileModalDisp = false;
-let helpModalDisp = false;
 
 for (let i = 0; i < menuOptions.length; i++) {
     menuOptions[i].addEventListener("click", function (e) {
@@ -23,12 +22,6 @@ for (let i = 0; i < menuOptions.length; i++) {
                 Filemodal.style.display = "none";
             }
 
-            let helpOption = document.querySelector(".Help");
-            if (helpModalDisp && !helpOption.classList.contains("menu-option-selected")) {
-                helpModalDisp = false;
-                let HelpModal = document.querySelector(".help-modal");
-                HelpModal.style.display = "none";
-            }
         }
     })
 }
@@ -60,7 +53,7 @@ saveBtn.addEventListener("click", function (e) {
             let FileName = ev.currentTarget.value;
             let titleBar = document.querySelector(".title-bar");
             titleBar.innerText = FileName;
-            window.localStorage.setItem(FileName, JSON.stringify(dataObj));
+            window.localStorage.setItem(FileName + ".ec", JSON.stringify(dataObj));
             Savemodal.style.display = "none";
         }
     })
@@ -78,6 +71,7 @@ openBtn.addEventListener("click", function (e) {
     keys = Object.keys(localStorage);
     let keyContainer = document.querySelector(".innerOpenDiv");
     for (let i = 0; i < keys.length; i++) {
+        if (keys[i].split(".")[1] != 'ec') continue;
         let div = document.createElement("div");
         div.innerText = keys[i];
         div.addEventListener("click", function (e) {
@@ -126,18 +120,27 @@ clearBtn.addEventListener("click", function (e) {
 })
 
 let helpOption = document.querySelector(".Help");
-let HelpModal = document.querySelector(".help-modal");
-helpOption.addEventListener("click", function (e) {
-    helpModalDisp = true;
-    HelpModal.style.display = "flex"
-})
-let CloseBtn = HelpModal.querySelector(".closeBtn");
-CloseBtn.addEventListener("click", function (ev) {
-    helpModalDisp = false;
-    HelpModal.style.display = "none"
-    helpOption.classList.remove("menu-option-selected")
-})
+helpOption.addEventListener("click", () => {
+    instructions();
+});
 
+function instructions() {
+    Swal.fire({
+        icon: 'info',
+        title: 'Instructions',
+        html: `
+        <ul>
+        <li>For Formatting text, Select the targeted cell first, then click on the desired formatting type</li>
+        <li>For Applying formulas, select the targeted cell first, then enter the formula</li>
+        <li>For Applying formulas, Make sure to enter the formula in this format - (CellName) (space) (operator) (space) (CellName)</li>
+        <li>Eg - A1 + B1</li>
+        <li>Make sure parent cells have appropriate values before applying formulas</li>
+        <li>Currently, '+', '-', '*', '/', '%' only are supported</li>
+        <li>To view instructions again, click on the help button in top left corner</li>
+    </ul>
+        `
+    })
+}
 
 let columnIDs = document.querySelector(".columnIDContainer");
 for (let i = 0; i < 26; i++) {
@@ -299,3 +302,5 @@ newFormula.addEventListener("change", function (e) {
 function addToDownStream(toBeAdded, whereToBeAdded) {
     dataObj[whereToBeAdded].downstream.push(toBeAdded);
 }
+
+instructions();
