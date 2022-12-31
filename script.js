@@ -70,6 +70,9 @@ openBtn.addEventListener("click", function (e) {
     })
     keys = Object.keys(localStorage);
     let keyContainer = document.querySelector(".innerOpenDiv");
+    while (keyContainer.firstChild) {
+        keyContainer.removeChild(keyContainer.lastChild);
+      }
     for (let i = 0; i < keys.length; i++) {
         if (keys[i].split(".")[1] != 'ec') continue;
         let div = document.createElement("div");
